@@ -1,5 +1,6 @@
 package com.luciano.hrworker.resources;
 
+import com.luciano.hrworker.domain.Worker;
 import com.luciano.hrworker.repositories.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class WorkerResource {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity findById(@PathVariable("id") Long id){
+    public ResponseEntity<Worker> findById(@PathVariable("id") Long id){
         return ResponseEntity.ok(workerRepository.findById(id).get());
     }
 
